@@ -10,7 +10,6 @@ import useAccountStore from "./stores/store.account";
 import useThemeStore from "./stores/store.theme";
 import ThemeSelect from "./components/ThemeSelect";
 import LoadingLogo from "./components/LoadingLogo";
-import 'flyonui/dist/flyonui.js'
 
 
 const App = () => {
