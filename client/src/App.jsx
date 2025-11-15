@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 import useAccountStore from "./stores/store.account";
 import useThemeStore from "./stores/store.theme";
 import ThemeSelect from "./components/ThemeSelect";
-import LoadingLogo from "./components/loadingLogo";
+import LoadingLogo from "./components/LoadingLogo";
 
 
 const App = () => {
