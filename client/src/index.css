@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "flyonui";
+@import "flyonui/variants.css";                     /* For FlyonUI JS‐component styles */
+@source "./node_modules/flyonui/dist/index.js"; 
+@plugin "@iconify/tailwind4";
+@plugin "flyonui" {
+  themes: light --default, dark --prefersdark,
+          black, claude, corporate, ghibli, gourmet, luxury,
+          mintlify, pastel, perplexity, shadcn, slack, soft,
+          spotify, valorant, vscode;
+}
+
+.shadowDef{
+    box-shadow: 2px 2px 5px rgba(66, 66, 66, 0.425);
+}
+
+@keyframes leftToRight {
+    0% {
+    left: -100%;   /* start just outside the right */
+  }
+  100% {
+    left: 100%;  /* move completely out to the left */
+  }
+}
+
