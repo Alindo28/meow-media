@@ -6,7 +6,7 @@
   "scripts": {
     "install:all": "npm install --prefix server && npm install --prefix client",
 
-    "build": "npm run build --prefix client",
+    "build": "npm install --prefix server && npm install --prefix client && npm exec --prefix client vite build",
 
     "start": "node server/app.js",
 
