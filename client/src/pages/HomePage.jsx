@@ -3,7 +3,7 @@ import usePostStore from '../stores/store.post'
 import { useEffect, useState } from 'react'
 import { PostCard } from '../components/skeletons/PostCard'
 import MakePost from '../components/MakePost'
-import LoadingLogo from '../components/loadingLogo'
+import LoadingLogo from '../components/LoadingLogo'
 import BackToTop from "../components/BackToTop";
 
 const HomePage = () => {
