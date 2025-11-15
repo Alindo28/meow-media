@@ -7,9 +7,13 @@ import chatRouter from "./routes/chat.routes.js"
 import connectDB from "./connections/connection.mongodb.js"
 import cookieParser from "cookie-parser"
 import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 let PORT = process.env.PORT || 5000
-let __dirname = path.resolve()
+
 
 let app = express()
 config()
@@ -31,9 +35,9 @@ app.use("/api/v1/chat", chatRouter)
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../client/dist")));
 
-    app.get("*",(req,res) => {
-        res.sendFile(path.join(__dirname, "../client","dist","index.html"))
-    })
+    app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    });
 }
 
 async function start() {
