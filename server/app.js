@@ -11,19 +11,20 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+config()
 
 let PORT = process.env.PORT || 5000
 
 
 let app = express()
-config()
+
 
 app.use(express.json({ limit: '10mb' }));          // increase JSON payload limit
 app.use(express.urlencoded({ limit: '10mb', extended: true })); // for form-data
 
 app.use(cors({
-  origin: "http://localhost:5173", // your React app
-  credentials: true // ✅ allow cookies
+  origin: process.env.NODE_ENV === "production" ? "https://meow-media.onrender.com" : "http://localhost:5173",
+  credentials: true
 }))
 
 app.use(cookieParser())
@@ -34,9 +35,8 @@ app.use("/api/v1/chat", chatRouter)
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../client/dist")));
-
     app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+        res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
 }
 
